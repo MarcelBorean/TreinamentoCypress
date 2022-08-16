@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\cypress",
+    "\\cypress\\config",
+    "\\cypress\\e2e",
+    "\\cypress\\fixtures",
+    "\\cypress\\support",
+    "\\cypress\\support\\Common",
+    "\\cypress\\support\\Home",
+    "\\cypress\\support\\Login",
+    "\\cypress\\support\\MeusPedidos"
+  ],
+  "SelectedNode": "\\.github",
+  "PreviewInSolutionExplorer": false
+}
