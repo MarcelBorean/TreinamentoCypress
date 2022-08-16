@@ -40,3 +40,19 @@ Cypress.Commands.add("login", (email, password) => {
     cy.get('[data-test="login-submit"]')
         .click();
 });
+
+Cypress.Commands.add("criarUsuarioEAcessarPaginaDePerfil", (nome, email, senha) => {
+    cy.visit('cadastrar');
+    cy.get('[data-test="register-name"] > .MuiInputBase-root > .MuiInputBase-input')
+        .type(nome);
+    cy.get('[data-test="register-email"] > .MuiInputBase-root > .MuiInputBase-input')
+        .type(email);
+    cy.get('[data-test="register-password"] > .MuiInputBase-root > .MuiInputBase-input')
+        .type(senha);
+    cy.get('[data-test="register-password2"] > .MuiInputBase-root > .MuiInputBase-input')
+        .type(senha);            
+    cy.get('[data-test="register-submit"]')
+        .click();
+    cy.get('[data-test="dashboard-createProfile"]', { timeout: 3000 })
+        .click();
+});
