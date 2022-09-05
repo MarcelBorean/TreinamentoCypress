@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import usuarios from "../../fixtures/usuarios.json";
 
 describe('TCD-3030 -> Login', () => {
 
@@ -27,5 +28,23 @@ describe('TCD-3030 -> Login', () => {
 
         //assert
         cy.get('[data-test="alert"]').should('contain', 'Credenciais inválidas');
+    });
+
+    it('Deve fazer login com sucesso - Usando importação', () => {
+        //arrange        
+        cy.login(usuarios[0].email, usuarios[0].senha);
+
+        //assert
+        cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo Marcel');        
+    });
+
+    it('Deve fazer login com sucesso - Usando fixture', () => {
+        //arrange        
+        cy.fixture("usuarios").then((users) => {
+            cy.login(users[0].email, users[0].senha);
+        });
+
+        //assert
+        cy.get('[data-test="dashboard-welcome"]').should('contain', 'Bem-vindo Marcel');        
     });
 });
